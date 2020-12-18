@@ -10,15 +10,24 @@ def main():
     print("Password must be between {} and {} characters long".format(MIN_LENGTH, MAX_LENGTH))
     print("Password must include at least 1 Upper case and 1 numeric character")
 
+    password = get_password()
+
+    print("password accepted!")
+    print("\t", end="")
+    censor_password(password)
+
+
+def censor_password(password):
+    for char in password:
+        print("*", end="")
+
+
+def get_password():
     password = str(input("Please choose a password \n\t> "))
     while not password_checker(password):
         print("invalid password!")
         password = str(input("\t> "))
-
-    print("password accepted!")
-    print("\t", end="")
-    for char in password:
-        print("*", end="")
+    return password
 
 
 def password_checker(password):
